@@ -1,3 +1,11 @@
 ---
 layout: 'default'
 ---
+
+<% for document in @getCollection('posts').toJSON(): %>
+<article id="post" class="post">
+    <a href="<%= document.url %>"><h1><%= document.title %></h1></a>
+    <h6><%= document.author %> | <%= document.date.toShortDateString() %></h6>
+    <div class="post-content"><%- document.content %></div>
+</article>
+<% end %>

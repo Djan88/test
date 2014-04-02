@@ -67,6 +67,9 @@ docpadConfig = {
     # =================================
     # Collections
 
+    collections:
+        posts: ->
+            @getCollection('documents').findAllLive({relativeOutDirPath:'posts'}, [date:-1])
     # =================================
     # DocPad Events
 
