@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<article id="post" class="post">
+    <h1><%= @document.title %></h1>
+    <h6><%= @document.author %></h6>
+    <div class="post-content"><%- @content %></div>
+</article>
+<footer class="article-footer">
+    <% if  @document.relatedDocuments and @document.relatedDocuments.length: %>
+    <section id="related">
+        <h3>Похожие статьи</h3>
+        <table class="related-links">
+            <tr>
+            <% for document in @document.relatedDocuments[0..2]: %>
+                <td><h5><a href="<%= document.url %>"><%= document.title %></a></h5></td>
+            <% end %>
+            </tr>
+        </table>
+    </section>
+    <% end %>
+</footer>
